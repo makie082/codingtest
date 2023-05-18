@@ -1,7 +1,7 @@
 from itertools import combinations
 
 l, c = map(int, input().split())
-alpha = sorted(list(input().split()))
+alpha = sorted(list(input().split())) # 입력을 받자마자 정렬해주어야함
 
 aeiou = ['a','e','i','o','u']
 total_case = list(combinations(alpha,l))
