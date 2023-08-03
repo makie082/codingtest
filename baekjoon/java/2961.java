@@ -10,9 +10,6 @@ public class Baekjoon_2961 {
 	static boolean[] selected;
 	static int[] sour;
 	static int[] bitter;
-	static boolean[] results;
-	static boolean s;
-	static boolean b;
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -49,7 +46,7 @@ public class Baekjoon_2961 {
 					break;
 				}
 			}
-			if (flag == 0) return;
+			if (flag == 0) return; // 전체 false인 것은 고려해주면 안됨!
 			
 			sSum = 1;
 			bSum = 0;
