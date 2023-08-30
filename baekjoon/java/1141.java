@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Baekjoon_1010 {
-
 	private static int t;
 
 	public static void main(String[] args) throws Exception{
