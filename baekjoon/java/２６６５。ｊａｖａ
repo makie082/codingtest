@@ -1,0 +1,77 @@
+import org.w3c.dom.Node;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+
+public class Main {
+
+    private static int N;
+    private static char[][] graph;
+    private static int[][] visited;
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
+        StringTokenizer st;
+        graph = new char[N][N];
+
+        for (int i = 0; i < N; i++) {
+            graph[i] = br.readLine().toCharArray();
+        }
+
+        visited = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                visited[i][j] = Integer.MAX_VALUE;
+            }
+        }
+
+        bfs();
+
+
+        System.out.println(visited[N-1][N-1]);
+    }
+    static int[] dx = {-1,1,0,0};
+    static int[] dy = {0,0,-1,1};
+    static void bfs(){
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.offer(new Node(0,0));
+        visited[0][0] = 0;
+
+        while(!queue.isEmpty()){
+            Node node = queue.poll();
+            int x = node.r;
+            int y = node.c;
+
+            for (int i = 0; i < 4; i++) {
+                int nx = x+dx[i];
+                int ny = y+dy[i];
+
+                if(nx<0 || nx>N-1 || ny<0 || ny>N-1) continue;
+
+                if(visited[nx][ny] > visited[x][y]){ ／／ 가장 작은 값이 쭉쭉 가야하니까는¡¡
+                    if(graph[nx][ny] == '1'){
+                        // 흰색이라면 == 이동가능하다면
+                        visited[nx][ny] = visited[x][y];
+                        queue.offer(new Node(nx, ny));
+                    }else{ // 까만색이면 뿌수기 ㅋㅋ
+                        visited[nx][ny] = visited[x][y]+1;
+                        queue.offer(new Node(nx,ny));
+                    }
+                }
+            }
+        }
+    }
+
+    static class Node{
+        int r,c;
+
+        Node(int r, int c){
+            this.r= r;
+            this.c= c;
+        }
+    }
+
+}
