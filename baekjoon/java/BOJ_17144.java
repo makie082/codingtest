@@ -6,6 +6,7 @@ public class Main {
 
     // 시물레이션
     // 먼지 확산 + 공기청정기 동작이 반복
+    // 배열 회전 - tmp 객체를 따로 두기!!
     
     static int R, C, T, ans;
     static int[][] map, tempMap;
