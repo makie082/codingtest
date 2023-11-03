@@ -51,7 +51,7 @@ class Solution {
         }
         System.out.println(result);
         
-        List<String> list = new ArrayList<>(result.keySet());
+        List<String> list = new ArrayList<>(result.keySet()); // hashmap은 순서가 없으므로 list로 변환하여 sorting 해주어야함
         Collections.sort(list);
         
         int[] answer = new int[result.size()];
