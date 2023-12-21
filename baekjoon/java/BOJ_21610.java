@@ -8,7 +8,7 @@ public class BOJ_21610 {
     static int[] dy = {-1,-1,0,1,1,1,0,-1};
     private static int[][] map;
     private static int[][] move;
-    static ArrayList<Point> cloud;
+    static ArrayList<Point> cloud; // cloud를 queue로 두어도 편하게 가능
 
     public static void main(String[] args) throws Exception {
 
